@@ -14,6 +14,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import fr.dicks.mobile.forumjv.R;
+import fr.dicks.mobile.forumjv.ui.activities.ui.LoginActivity;
+
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -72,7 +75,10 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         
         if (id == R.id.item_avatar) {
-            return true;
+            Toast.makeText(this, "CLICKED",
+                    Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

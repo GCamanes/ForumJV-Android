@@ -3,4 +3,7 @@
 
     <string name="item_icon_avatar">user avatar</string>
     <string name="item_icon_connectivity">connectivity status</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

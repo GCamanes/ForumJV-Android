@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -14,8 +15,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import fr.dicks.mobile.forumjv.R;
+import fr.dicks.mobile.forumjv.ui.fragments.GamePageFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements GamePageFragment.OnFragmentInteractionListener {
 
     private Boolean connection_status;
     InternalNetworkChangeReceiver internalNetworkChangeReceiver;
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
         internalNetworkChangeReceiver = new InternalNetworkChangeReceiver();
         registerReceiver();
+
+        displayGamePageFragment();
     }
 
     @Override
@@ -102,6 +106,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
     class InternalNetworkChangeReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -115,4 +124,11 @@ public class MainActivity extends AppCompatActivity {
             MainActivity.this.manageConnectivity();
         }
     }
+
+    public void displayGamePageFragment(){
+        GamePageFragment fragment = GamePageFragment.newInstance("GamePage", "");
+        currentFragment = fragment;
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+    }
+
 }

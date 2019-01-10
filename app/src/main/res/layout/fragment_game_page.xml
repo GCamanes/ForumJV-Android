@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.GamePageFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="30dp"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:id="@+id/titleGame_text"
+                    android:text="ShadowGun legends"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2">
+
+                    <ProgressBar
+                        android:id="@+id/progress_star"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:max="5"
+                        android:min="0"
+                        android:progress="4">
+
+                    </ProgressBar>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="4"
+                        android:textSize="50dp"
+                        android:textAlignment="center"
+                        android:gravity="center"/>
+
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="300dp"
+                    android:layout_margin="5dp"
+                    android:background="@color/gray"
+                    android:src="@drawable/jaquette_shadowgunlegends"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:orientation="vertical"
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:layout_margin="5dp"
+                        android:padding="5dp"
+                        android:textAlignment="center"
+                        android:text="Creators :"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Madfinger Games"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:layout_margin="5dp"
+                        android:padding="5dp"
+                        android:textAlignment="center"
+                        android:text="Platforms :"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:id="@+id/platforms_layout">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:layout_margin="5dp"
+                            android:padding="5dp"
+                            android:src="@drawable/icons_macos"
+                            android:backgroundTint="@color/black"
+                            android:adjustViewBounds="true"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:padding="5dp"
+                            android:src="@drawable/ic_android_black_24dp"
+                            android:backgroundTint="@color/black"
+                            android:adjustViewBounds="true"/>
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Shadowgun Legends est un FPS dans lequel deux faction s'affrontent : les humains et les aliens. Dans un univers de science-fiction, vous pourrez manier de nombreuses armes futuristes et de l'équipement pour venir à bout de vos adversaires. De nombreuses machines spectaculaires seront également de la partie."/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Forum"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Liste des avis"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/content_view">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="OK"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/green"
+            android:background="@drawable/border_button"
+            android:layout_weight="1.4"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scrollbars="vertical"
+        android:layout_margin="10dp"
+        android:background="@drawable/border_button"/>
+
+</LinearLayout>

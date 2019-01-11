@@ -10,8 +10,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import fr.dicks.mobile.forumjv.R;
 
@@ -37,6 +42,16 @@ public class MainActivity extends AppCompatActivity {
 
         internalNetworkChangeReceiver = new InternalNetworkChangeReceiver();
         registerReceiver();
+    }
+
+    public static Date stringToDate(String s){
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
+        try{
+            return df.parse(s);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override

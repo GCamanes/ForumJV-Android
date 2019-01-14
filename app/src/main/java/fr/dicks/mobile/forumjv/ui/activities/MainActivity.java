@@ -13,14 +13,17 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import fr.dicks.mobile.forumjv.R;
+import fr.dicks.mobile.forumjv.model.Game;
+import fr.dicks.mobile.forumjv.ui.fragments.GameListFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements GameListFragment.onGameListFragmentInteractionListener {
 
     private Boolean connection_status;
     InternalNetworkChangeReceiver internalNetworkChangeReceiver;
@@ -42,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
 
         internalNetworkChangeReceiver = new InternalNetworkChangeReceiver();
         registerReceiver();
+        this.loadFragment();
+    }
+
+    public void loadFragment() {
+        GameListFragment fragment = GameListFragment.newInstance();
+        currentFragment = fragment;
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
     }
 
     public static Date stringToDate(String s){
@@ -115,6 +125,15 @@ public class MainActivity extends AppCompatActivity {
         {
             ex.printStackTrace();
         }
+    }
+
+    @Override
+    public void onGameListFragmentInteraction(Game item) {
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, "game " + item.getTitle() + " clicked", duration);
+        toast.show();
     }
 
     class InternalNetworkChangeReceiver extends BroadcastReceiver {

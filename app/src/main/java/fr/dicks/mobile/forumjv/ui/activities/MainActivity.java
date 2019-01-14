@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import fr.dicks.mobile.forumjv.R;
+import fr.dicks.mobile.forumjv.ui.activities.ui.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -87,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         
         if (id == R.id.item_avatar) {
-            return true;
+            Intent loginIntent = new Intent(this, LoginActivity.class);
+            startActivity(loginIntent);
         }
 
         return super.onOptionsItemSelected(item);

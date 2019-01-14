@@ -12,17 +12,31 @@
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:max="5"
+            android:min="0"
+            android:
+            android:id="@+id/review_rate_bar"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:id="@+id/review_rate_text"
+            android:text="0"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:layout_weight="1.5"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.3"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:text="OK"
+            android:id="@+id/send_button"
             android:textColor="@color/white"
             android:backgroundTint="@color/green"
             android:background="@drawable/border_button"
@@ -34,6 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:scrollbars="vertical"
+        android:id="@+id/review_edittext"
         android:layout_margin="10dp"
         android:background="@drawable/border_button"/>
 

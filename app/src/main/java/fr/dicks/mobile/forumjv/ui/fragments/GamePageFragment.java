@@ -7,6 +7,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
+import android.widget.SeekBar;
+import android.widget.TextView;
+
+import com.robertlevonyan.views.expandable.Expandable;
+import com.robertlevonyan.views.expandable.ExpandingListener;
 
 import fr.dicks.mobile.forumjv.R;
 
@@ -30,6 +41,22 @@ public class GamePageFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    //ViewComponent
+    ScrollView scrollView;
+    TextView textTitle;
+    TextView textRate;
+    ProgressBar barRate;
+    TextView textCreators;
+    LinearLayout layoutPlatforms;
+    TextView textDescription;
+    Button buttonForum;
+    Button buttonReview;
+    Expandable expandableReview;
+    SeekBar barRateReview;
+    TextView textRateReview;
+    Button buttonSendReview;
+    EditText editReview;
 
     public GamePageFragment() {
         // Required empty public constructor
@@ -66,7 +93,66 @@ public class GamePageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_game_page, container, false);
+        View view = inflater.inflate(R.layout.fragment_game_page, container, false);
+
+        scrollView = view.findViewById(R.id.scrollview);
+        textTitle = view.findViewById(R.id.titleGame_text);
+        textRate = view.findViewById(R.id.rate_text);
+        barRate = view.findViewById(R.id.progress_star);
+        textCreators = view.findViewById(R.id.creators_text);
+        layoutPlatforms = view.findViewById(R.id.platforms_layout);
+        textDescription = view.findViewById(R.id.description_text);
+        buttonForum = view.findViewById(R.id.forum_button);
+        buttonReview = view.findViewById(R.id.reviews_button);
+        expandableReview = view.findViewById(R.id.expandable);
+        View contentReview = view.findViewById(R.id.content_view);
+        barRateReview = view.findViewById(R.id.review_rate_bar);
+        textRateReview = view.findViewById(R.id.review_rate_text);
+        buttonSendReview = view.findViewById(R.id.send_button);
+        editReview = view.findViewById(R.id.review_edittext);
+
+        expandableReview.setExpandingListener(new ExpandingListener() {
+            @Override
+            public void onExpanded() {
+                //some stuff on expand
+                new Thread(new Runnable() {
+                    public void run() {
+                        // a potentially time consuming task
+                        try {
+                            Thread.sleep(100);
+                            scrollView.fullScroll(View.FOCUS_DOWN);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
+            }
+            @Override
+            public void onCollapsed() {
+                //some stuff on collapse
+            }
+        });
+
+        barRateReview.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                textRateReview.setText("" + progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
